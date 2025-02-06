@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Expiry Alert</title>
+    <style>
+        @keyframes slideDown {
+            from { top: -50px; opacity: 0; }
+            to { top: 0; opacity: 1; }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+
+        .alert-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            z-index: 1000;
+            animation: slideDown 0.5s ease-in-out, shake 1s ease-in-out 3;
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 50px; /* Moved left */
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            color: red;
+            border: none;
+            padding: 5px 12px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 3px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .close-btn:hover {
+            background: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="alert-banner">
+        ALert! Your session is about to expire.
+        <button class="close-btn" onclick="this.parentElement.style.display='none'">X</button>
+    </div>
+
+</body>
+</html>
